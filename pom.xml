@@ -6,7 +6,7 @@
 
 	<groupId>com.github.kag0</groupId>
 	<artifactId>tail</artifactId>
-	<version>0.0.7</version>
+	<version>0.0.8</version>
 
 	<properties>
 		<maven.compiler.source>1.8</maven.compiler.source>
@@ -17,7 +17,7 @@
 		<repository>
 			<id>github</id>
 			<name>GitHub kag0 Apache Maven Packages</name>
-			<url>https://maven.pkg.github.com/kag0</url>
+			<url>https://maven.pkg.github.com/kag0/tail</url>
 		</repository>
 	</distributionManagement>
 </project>
