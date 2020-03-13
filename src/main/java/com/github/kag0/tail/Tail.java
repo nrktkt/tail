@@ -1,4 +1,4 @@
-package tail;
+package com.github.kag0.tail;
 
 import java.util.function.Supplier;
 

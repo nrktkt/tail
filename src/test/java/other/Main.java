@@ -1,8 +1,8 @@
 package other;
 
 
-import tail.Tail;
-import static tail.Tail.*;
+import com.github.kag0.tail.Tail;
+import static com.github.kag0.tail.Tail.*;
 
 import java.math.BigInteger;
 
@@ -20,6 +20,12 @@ class Scratch {
         } catch (StackOverflowError e) {}
 
         System.out.println(safeFact(BigInteger.ONE, BigInteger.valueOf(99999)).evaluate());
+    }
+
+    static Tail<Void> infiniteLoop(int i) {
+        System.out.println("Loop " + i + ", stack still intact!");
+
+        return call(() -> infiniteLoop(i + 1));
     }
 
     static BigInteger fact(BigInteger fact, BigInteger n) {
