@@ -6,7 +6,7 @@
 
 	<groupId>com.github.kag0</groupId>
 	<artifactId>tail</artifactId>
-	<version>0.0.5</version>
+	<version>${env.GITHUB_ACTION}</version>
 
 	<properties>
 		<maven.compiler.source>1.8</maven.compiler.source>
