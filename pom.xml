@@ -12,12 +12,4 @@
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
 	</properties>
-
-	<distributionManagement>
-		<repository>
-			<id>github</id>
-			<name>GitHub kag0 Apache Maven Packages</name>
-			<url>https://maven.pkg.github.com/kag0/tail</url>
-		</repository>
-	</distributionManagement>
 </project>
