@@ -78,7 +78,7 @@ usually to add an additional parameter to accumulate progress.
 
 #### wrap the return type in `Tail`
 
-this will enforce that the method is stack safe at compile time.
+this will enforce that the recursive call is in the tail position.
 
 ```java
 Tail<Long> factorial(long fact, long n)
