@@ -19,7 +19,33 @@ class Test {
 			throw new RuntimeException("JVM stack too big for this test");
 		} catch (StackOverflowError e) {}
 
+		try {
+			unsafeAck(4, 1);
+			throw new RuntimeException("JVM stack too big for this test");
+		} catch (StackOverflowError e) {}
+
 		System.out.println(safeFact(BigInteger.ONE, BigInteger.valueOf(99999)).evaluate());
+		System.out.println(ack(4, 1).evaluate());
+	}
+
+	static int unsafeAck(int m, int n) {
+		if(m == 0)
+			return n + 1;
+		if(m > 0 && n == 0)
+			return unsafeAck(m - 1, 1);
+		if(m > 0 && n > 0)
+			return unsafeAck(m - 1, unsafeAck(m, n- 1));
+		throw new IllegalArgumentException();
+	}
+
+	static Tail<Integer> ack(int m, int n) {
+		if(m == 0)
+			return done(n + 1);
+		if(m > 0 && n == 0)
+			return call(() -> ack(m - 1, 1));
+		if(m > 0 && n > 0)
+			return call(() -> ack(m, n - 1).flatMap(nn -> ack(m - 1, nn)));
+		throw new IllegalArgumentException();
 	}
 
 	static Tail<Void> infiniteLoop(int i) {
@@ -39,7 +65,7 @@ class Test {
 		if(n.equals(BigInteger.ZERO)) {
 			return done(fact);
 		}
-		return call(dangerousFact(fact.multiply(n), n.subtract(BigInteger.ONE))::next);
+		return dangerousFact(fact.multiply(n), n.subtract(BigInteger.ONE));
 	}
 
 	static Tail<BigInteger> safeFact(BigInteger fact, BigInteger n) {
