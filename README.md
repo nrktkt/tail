@@ -108,3 +108,24 @@ recursive methods no longer blow the stack.
 note that if you skip the 'move the recursive call into the tail position' 
 step, the code will not compile because the method is not tail recursive 
 and therefore not stack safe. thanks to `Tail` that is covered by type safety.
+
+### making safe recursive calls outside the tail position
+
+in addition to making tail recursion safe, 
+we can also use trampolining to recursive methods 
+that would otherwise be tricky to make tail recursive.
+
+to do this, just use `.flatMap` to chain two `call`s together.  
+for example
+
+```java
+Tail<Integer> ackermann(int m, int n) {
+  if(m == 0) 
+    return done(n + 1);
+  if(m > 0 && n == 0) 
+    return call(() -> ack(m - 1, 1));
+  if(m > 0 && n > 0) 
+    return call(() -> ack(m, n - 1)).flatMap(nn -> ack(m - 1, nn));
+  throw new IllegalArgumentException();
+}
+```
