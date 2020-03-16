@@ -112,7 +112,7 @@ and therefore not stack safe. thanks to `Tail` that is covered by type safety.
 ### making safe recursive calls outside the tail position
 
 in addition to making tail recursion safe, 
-we can also use trampolining to recursive methods 
+we can also use trampolining to enable recursive methods 
 that would otherwise be tricky to make tail recursive.
 
 to do this, just use `.flatMap` to chain two `call`s together.  
