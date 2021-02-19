@@ -22,7 +22,7 @@ young gen heap memory is used.
 as a consequence, other objects may be moved from young to old heap unnecessarily.
 
 note that this difference is only applicable to methods that use primitives.
-any method using objects or wrapped primitives is going to generate the same 
+any method using objects or boxed primitives is going to generate the same 
 amount of objects each loop.
 
 ## Performance
