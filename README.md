@@ -7,7 +7,7 @@ enables infinitely deep [tail recursive calls](https://en.wikipedia.org/wiki/Tai
 no transitive dependencies
 
 ## Install
-[![](https://jitpack.io/v/kag0/tail.svg)](https://jitpack.io/#kag0/tail)
+[![](https://jitpack.io/v/nrktkt/tail.svg)](https://jitpack.io/#nrktkt/tail)
 
 add the jitpack repository
 ```xml
@@ -25,7 +25,7 @@ add the dependency
 <dependencies>
 ...
   <dependency>
-    <groupId>com.github.kag0</groupId>
+    <groupId>com.github.nrktkt</groupId>
     <artifactId>tail</artifactId>
     <version>Tag</version>
   </dependency>
