@@ -123,9 +123,9 @@ Tail<Integer> ackermann(int m, int n) {
   if(m == 0) 
     return done(n + 1);
   if(m > 0 && n == 0) 
-    return call(() -> ack(m - 1, 1));
+    return call(() -> ackermann(m - 1, 1));
   if(m > 0 && n > 0) 
-    return call(() -> ack(m, n - 1)).flatMap(nn -> ack(m - 1, nn));
+    return call(() -> ackermann(m, n - 1)).flatMap(nn -> ackermann(m - 1, nn));
   throw new IllegalArgumentException();
 }
 ```
